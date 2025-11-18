@@ -1,39 +1,155 @@
-<header class="relative w-full h-screen overflow-hidden">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PETE Learning</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
 
-  <!-- Background Video -->
-  <video 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    src="visualMetaphor_hook.mp4"
-    class="absolute inset-0 w-full h-full object-cover"
-  ></video>
+      body {
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
 
-  <!-- Gradient Overlay for readability -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/10"></div>
+      header.hero {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        overflow: hidden;
+        isolation: isolate;
+      }
 
-  <!-- Content Layer -->
-  <div class="relative z-10 max-w-4xl mx-auto px-6 py-32 sm:py-48">
-    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white">
-      Some platforms deliver training.<br>
-      <span class="text-gradient-green">This one unlocks value.</span>
-    </h1>
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
 
-    <p class="mt-8 text-lg md:text-xl leading-relaxed text-gray-200">
-      PETE Learning is an AI Course Builder that turns 20 hours into 2 minutes —<br>
-      and turns 25% employees into 125% employees.<br><br>
-      The only problem?<br>
-      <span class="font-semibold text-red-300">Almost nobody knows it exists.</span>
-    </p>
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.15));
+        z-index: 1;
+      }
 
-    <div class="mt-10">
-      <a 
-        href="#introduction" 
-        class="inline-block bg-green-400 hover:bg-green-300 text-gray-900 font-semibold px-6 py-3 rounded-xl shadow-lg transition duration-200"
-      >
-        See why that matters →
-      </a>
-    </div>
-  </div>
-</header>
+      .content-layer {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: flex-end;
+        min-height: 100vh;
+        padding: 4rem 1.5rem 6rem;
+        box-sizing: border-box;
+      }
+
+      .content-wrapper {
+        max-width: 960px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .cta-button {
+        display: inline-block;
+        margin-top: 2.5rem;
+        background: #86efac;
+        color: #0c0c0c;
+        font-weight: 600;
+        padding: 0.85rem 1.75rem;
+        border-radius: 999px;
+        text-decoration: none;
+        box-shadow: 0 15px 35px rgba(134, 239, 172, 0.25);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 40px rgba(134, 239, 172, 0.4);
+      }
+
+      .text-gradient-green {
+        background: linear-gradient(90deg, #86efac, #4ade80, #86efac);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .fade-target {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-target.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        src="visualMetaphor_hook.mp4"
+      ></video>
+
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="content-layer fade-target">
+        <div class="content-wrapper">
+          <h1>
+            Some platforms deliver training.<br />
+            <span class="text-gradient-green">This one unlocks value.</span>
+          </h1>
+
+          <p>
+            PETE Learning is an AI Course Builder that turns 20 hours into 2 minutes —<br />
+            and turns 25% employees into 125% employees.<br /><br />
+            The only problem?<br />
+            <span style="font-weight: 600; color: #fecaca">Almost nobody knows it exists.</span>
+          </p>
+
+          <a href="#introduction" class="cta-button">See why that matters →</a>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const video = document.querySelector('.hero-video');
+        const content = document.querySelector('.content-layer');
+
+        if (!video || !content) return;
+
+        const revealContent = () => {
+          setTimeout(() => content.classList.add('visible'), 800);
+        };
+
+        if (video.readyState >= 2) {
+          revealContent();
+        } else {
+          video.addEventListener('loadeddata', revealContent, { once: true });
+        }
+      });
+    </script>
+  </body>
+</html>
