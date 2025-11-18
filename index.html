@@ -1,11 +1,24 @@
+<style>
+  .fade-target {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-target.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
 <header class="relative w-full h-screen overflow-hidden">
 
   <!-- Background Video -->
-  <video 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
     src="visualMetaphor_hook.mp4"
     class="absolute inset-0 w-full h-full object-cover"
   ></video>
@@ -14,7 +27,7 @@
   <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/10"></div>
 
   <!-- Content Layer -->
-  <div class="relative z-10 max-w-4xl mx-auto px-6 py-32 sm:py-48">
+  <div class="relative z-10 max-w-4xl mx-auto px-6 py-32 sm:py-48 fade-target content-layer">
     <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white">
       Some platforms deliver training.<br>
       <span class="text-gradient-green">This one unlocks value.</span>
@@ -28,8 +41,8 @@
     </p>
 
     <div class="mt-10">
-      <a 
-        href="#introduction" 
+      <a
+        href="#introduction"
         class="inline-block bg-green-400 hover:bg-green-300 text-gray-900 font-semibold px-6 py-3 rounded-xl shadow-lg transition duration-200"
       >
         See why that matters →
@@ -37,3 +50,22 @@
     </div>
   </div>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.querySelector('header video');
+    const content = document.querySelector('.content-layer');
+
+    if (!video || !content) return;
+
+    const revealContent = () => {
+      setTimeout(() => content.classList.add('visible'), 800);
+    };
+
+    if (video.readyState >= 2) {
+      revealContent();
+    } else {
+      video.addEventListener('loadeddata', revealContent, { once: true });
+    }
+  });
+</script>
