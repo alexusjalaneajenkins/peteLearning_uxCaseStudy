@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PETE Learning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         color-scheme: dark;
+        --color-bg: #000000;
+        --color-text: #ffffff;
+        --color-muted: rgba(255, 255, 255, 0.78);
+        --color-accent: #5f4bb6;
+        --color-lime: #34c759;
+        --color-warm-gray: #f7f7f7;
       }
 
       body {
         margin: 0;
-        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        background-color: #000;
-        color: #fff;
+        font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
       }
 
       .video-container {
@@ -36,7 +48,12 @@
       .gradient-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.45));
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.9) 10%,
+          rgba(0, 0, 0, 0.65) 40%,
+          rgba(95, 75, 182, 0.35)
+        );
         z-index: 1;
       }
 
@@ -54,48 +71,74 @@
         padding: 0 1.5rem;
         color: #fff;
         z-index: 2;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        text-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
+        gap: 1.5rem;
       }
 
       .video-overlay-text h1 {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-        margin-bottom: 1.25rem;
-        line-height: 1.15;
+        font-family: 'Archivo', 'Poppins', sans-serif;
+        font-size: clamp(2.75rem, 6vw, 4.25rem);
+        margin-bottom: 0.5rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
       }
 
       .video-overlay-text p {
-        font-size: clamp(1rem, 2.5vw, 1.25rem);
-        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(1.05rem, 2.25vw, 1.35rem);
+        color: var(--color-muted);
         margin: 0 auto;
         max-width: 760px;
+        line-height: 1.6;
       }
 
       .content-wrapper {
         max-width: 960px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
       }
 
       .cta-button {
         display: inline-block;
-        margin-top: 2rem;
-        background: #86efac;
-        color: #0c0c0c;
+        align-self: flex-start;
+        margin-top: 1.5rem;
+        background: linear-gradient(120deg, var(--color-lime), #5ff585);
+        color: #041302;
         font-weight: 600;
-        padding: 0.85rem 1.75rem;
+        padding: 0.85rem 1.5rem;
         border-radius: 999px;
         text-decoration: none;
-        box-shadow: 0 15px 35px rgba(134, 239, 172, 0.25);
+        box-shadow: 0 20px 45px rgba(52, 199, 89, 0.35);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        letter-spacing: 0.02em;
       }
 
       .cta-button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 18px 40px rgba(134, 239, 172, 0.4);
+        box-shadow: 0 25px 55px rgba(52, 199, 89, 0.45);
       }
 
       .text-gradient-green {
-        background: linear-gradient(90deg, #86efac, #4ade80, #86efac);
+        background: linear-gradient(110deg, var(--color-lime), var(--color-accent));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+      }
+
+      .value-pills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .value-pill {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 0.4rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.35);
       }
 
       .fade-target {
@@ -125,22 +168,33 @@
 
       <div class="video-overlay-text fade-target">
         <div class="content-wrapper">
+          <div class="value-pills">
+            <span class="value-pill">Innovation</span>
+            <span class="value-pill">Efficiency</span>
+            <span class="value-pill">Personalization</span>
+            <span class="value-pill">Customer Success</span>
+          </div>
+
           <h1>
-            Some platforms deliver training.<br />
-            <span class="text-gradient-green">This one unlocks value.</span>
+            <span class="text-gradient-green">PETE</span> builds the training engine<br />
+            for modern, AI-driven teams.
           </h1>
 
           <p>
-            PETE Learning is an AI Course Builder that turns 20 hours into 2 minutes —<br />
-            and turns 25% employees into 125% employees.<br /><br />
-            The only problem?<br />
-            <span style="font-weight: 600; color: #fecaca">Almost nobody knows it exists.</span>
+            Give every onboarding, compliance, sales, and leadership program the polish of a world-class
+            training department—without hiring one. PETE's AI creates, manages, and distributes
+            personalized digital courses so growing companies can scale knowledge with confidence.
           </p>
 
-          <a href="#introduction" class="cta-button">See why that matters →</a>
+          <p style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-warm-gray);">
+            Faster go-lives. Sharper teams. A smarter path to customer success.
+          </p>
+
+          <a href="#introduction" class="cta-button">See why this matters ↓</a>
         </div>
       </div>
     </div>
+
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const video = document.querySelector('.bg-video');
