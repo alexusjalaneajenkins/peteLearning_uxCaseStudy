@@ -160,6 +160,129 @@
         opacity: 1;
         transform: translateY(0);
       }
+      .course-section {
+  background-color: #050510;
+  color: #f9fafb;
+  padding: 4rem 1.5rem;
+}
+
+.course-layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  gap: 2.5rem;
+}
+
+.course-sidebar {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.sidebar-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.module-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+}
+
+.course-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.course-kicker {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a5b4fc;
+  font-weight: 600;
+}
+
+.course-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.course-subheading {
+  font-size: 0.98rem;
+  color: #e5e7eb;
+  max-width: 620px;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.module-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 1rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  color: inherit;
+}
+
+.module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+}
+
+.module-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a5b4fc;
+}
+
+.module-title {
+  margin: 0.4rem 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.module-body {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .course-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .course-sidebar {
+    order: 2;
+  }
+
+  .course-main {
+    order: 1;
+  }
+}
     </style>
   </head>
   <body>
@@ -195,6 +318,89 @@
         </div>
       </div>
     </div>
+    <section id="course-dashboard" class="course-section">
+  <div class="course-layout">
+    <!-- Sidebar -->
+    <aside class="course-sidebar">
+      <h2 class="sidebar-title">Case Study Modules</h2>
+      <ol class="module-list">
+        <li>1. Meet PETE Learning</li>
+        <li>2. The Visibility Problem</li>
+        <li>3. The Journey</li>
+        <li>4. Challenges & Obstacles</li>
+        <li>5. Strategy & Story Reframe</li>
+        <li>6. Prototype & Outcomes</li>
+      </ol>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="course-main">
+      <p class="course-kicker">UX Case Study · PETE Learning</p>
+      <h3 class="course-heading">Your learning path through this project</h3>
+      <p class="course-subheading">
+        Explore each module to see how I uncovered PETE’s hidden value, reframed its story, 
+        and designed an experience that mirrors its promise.
+      </p>
+
+      <div class="module-grid">
+        <!-- Module 1 -->
+        <button class="module-card" data-target="#module-1">
+          <span class="module-label">Module 1</span>
+          <h4 class="module-title">Meet PETE Learning</h4>
+          <p class="module-body">
+            What PETE is, who it serves, and why it’s more than a standard LMS.
+          </p>
+        </button>
+
+        <!-- Module 2 -->
+        <button class="module-card" data-target="#module-2">
+          <span class="module-label">Module 2</span>
+          <h4 class="module-title">The Visibility Problem</h4>
+          <p class="module-body">
+            The best-kept secret issue: high potential, low awareness, generic story.
+          </p>
+        </button>
+
+        <!-- Module 3 -->
+        <button class="module-card" data-target="#module-3">
+          <span class="module-label">Module 3</span>
+          <h4 class="module-title">The Journey</h4>
+          <p class="module-body">
+            How I used AI tools, research, and synthesis to clarify PETE’s real value.
+          </p>
+        </button>
+
+        <!-- Module 4 -->
+        <button class="module-card" data-target="#module-4">
+          <span class="module-label">Module 4</span>
+          <h4 class="module-title">Challenges & Obstacles</h4>
+          <p class="module-body">
+            Navigating new tools, information overload, and learning animation through iteration.
+          </p>
+        </button>
+
+        <!-- Module 5 -->
+        <button class="module-card" data-target="#module-5">
+          <span class="module-label">Module 5</span>
+          <h4 class="module-title">Strategy & Story Reframe</h4>
+          <p class="module-body">
+            Shifting PETE’s story from “training platform” to “value unlocker.”
+          </p>
+        </button>
+
+        <!-- Module 6 -->
+        <button class="module-card" data-target="#module-6">
+          <span class="module-label">Module 6</span>
+          <h4 class="module-title">Prototype & Outcomes</h4>
+          <p class="module-body">
+            The final prototype and how it’s designed to boost demos and comprehension.
+          </p>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const video = document.querySelector('.bg-video');
