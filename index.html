@@ -58,41 +58,20 @@
         z-index: 1;
       }
 
-      .video-overlay-text {
+.video-overlay-text {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
-  justify-content: center;   /* center child vertically */
-  align-items: center;       /* center child horizontally */
+  justify-content: center;  /* vertical AND */
+  align-items: center;      /* horizontal */
   text-align: center;
-  padding: clamp(1.5rem, 3vw, 3rem);
-  color: #fff;
-  z-index: 2;
-  text-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
 }
-
-
-
-      .video-overlay-text h1 {
-        font-family: 'Archivo', 'Poppins', sans-serif;
-        font-size: clamp(2.5rem, 5.5vw, 4.6rem);
-        margin-bottom: 0.75rem;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1100px;
-      }
-
-      .video-overlay-text p {
-        font-size: clamp(1.05rem, 2.3vw, 1.35rem);
-        color: var(--color-text);
-        margin: 0;
-        max-width: 820px;
-        line-height: 1.65;
-      }
+      
+.video-overlay-text h1,
+.video-overlay-text p {
+  width: 100%;
+  max-width: none;  /* reset */
+}
 
       @media (max-width: 600px) {
   .video-overlay-text {
@@ -100,20 +79,15 @@
   }
 }
 
-
-
-
-      .content-wrapper {
-  width: min(92vw, 1100px);
+.content-wrapper {
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* center heading + text + button inside */
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
-  margin: 0 auto;
   text-align: center;
+  padding: clamp(1rem, 4vw, 4rem);
 }
-
 
       .cta-button {
   display: inline-block;
