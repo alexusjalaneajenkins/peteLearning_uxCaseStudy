@@ -160,11 +160,14 @@
         opacity: 1;
         transform: translateY(0);
       }
-      .course-section {
+      
+.course-section {
   background-color: #050510;
   color: #f9fafb;
-  padding: 4rem 1.5rem;
+  padding: 3.5rem 1.5rem;
+  min-height: 100dvh; /* fill the viewport */
 }
+
 
 .course-layout {
   max-width: 1120px;
@@ -174,11 +177,15 @@
   gap: 2.5rem;
 }
 
+/* LEFT SIDEBAR */
 .course-sidebar {
-  background: rgba(15, 23, 42, 0.9);
-  border-radius: 1rem;
-  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.5rem;
   border: 1px solid rgba(148, 163, 184, 0.4);
+  position: sticky;
+  top: 1.5rem;
+  align-self: flex-start;
 }
 
 .sidebar-title {
@@ -187,7 +194,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #e5e7eb;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
 }
 
 .module-list {
@@ -195,35 +202,73 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 0.5rem;
+  gap: 0.55rem;
   font-size: 0.9rem;
   color: #cbd5f5;
 }
 
+/* RIGHT SIDE */
 .course-main {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
+}
+
+/* Banner at top (for image later) */
+.course-banner {
+  background: radial-gradient(circle at top left, #4338ca, #111827);
+  border-radius: 1.5rem;
+  padding: 1.75rem 1.8rem;
+  color: #e5e7eb;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .course-kicker {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #a5b4fc;
+  letter-spacing: 0.16em;
+  color: #c7d2fe;
   font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .course-heading {
   font-size: 1.6rem;
   font-weight: 700;
+  margin: 0 0 0.35rem;
 }
 
 .course-subheading {
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   color: #e5e7eb;
   max-width: 620px;
+  margin: 0;
 }
+
+/* White content panel */
+.course-content {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 1.25rem;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.55);
+}
+
+.course-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.course-content p {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}      
 
 .module-grid {
   display: grid;
@@ -271,16 +316,17 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .course-section {
+    padding: 2.5rem 1.25rem;
+  }
+
   .course-layout {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
   }
 
   .course-sidebar {
-    order: 2;
-  }
-
-  .course-main {
-    order: 1;
+    position: static;
   }
 }
     </style>
@@ -333,73 +379,40 @@
       </ol>
     </aside>
 
-    <!-- Main Content -->
+    <!-- Main Column -->
     <div class="course-main">
-      <p class="course-kicker">UX Case Study · PETE Learning</p>
-      <h3 class="course-heading">Your learning path through this project</h3>
-      <p class="course-subheading">
-        Explore each module to see how I uncovered PETE’s hidden value, reframed its story, 
-        and designed an experience that mirrors its promise.
-      </p>
-
-      <div class="module-grid">
-        <!-- Module 1 -->
-        <button class="module-card" data-target="#module-1">
-          <span class="module-label">Module 1</span>
-          <h4 class="module-title">Meet PETE Learning</h4>
-          <p class="module-body">
-            What PETE is, who it serves, and why it’s more than a standard LMS.
-          </p>
-        </button>
-
-        <!-- Module 2 -->
-        <button class="module-card" data-target="#module-2">
-          <span class="module-label">Module 2</span>
-          <h4 class="module-title">The Visibility Problem</h4>
-          <p class="module-body">
-            The best-kept secret issue: high potential, low awareness, generic story.
-          </p>
-        </button>
-
-        <!-- Module 3 -->
-        <button class="module-card" data-target="#module-3">
-          <span class="module-label">Module 3</span>
-          <h4 class="module-title">The Journey</h4>
-          <p class="module-body">
-            How I used AI tools, research, and synthesis to clarify PETE’s real value.
-          </p>
-        </button>
-
-        <!-- Module 4 -->
-        <button class="module-card" data-target="#module-4">
-          <span class="module-label">Module 4</span>
-          <h4 class="module-title">Challenges & Obstacles</h4>
-          <p class="module-body">
-            Navigating new tools, information overload, and learning animation through iteration.
-          </p>
-        </button>
-
-        <!-- Module 5 -->
-        <button class="module-card" data-target="#module-5">
-          <span class="module-label">Module 5</span>
-          <h4 class="module-title">Strategy & Story Reframe</h4>
-          <p class="module-body">
-            Shifting PETE’s story from “training platform” to “value unlocker.”
-          </p>
-        </button>
-
-        <!-- Module 6 -->
-        <button class="module-card" data-target="#module-6">
-          <span class="module-label">Module 6</span>
-          <h4 class="module-title">Prototype & Outcomes</h4>
-          <p class="module-body">
-            The final prototype and how it’s designed to boost demos and comprehension.
-          </p>
-        </button>
+      <!-- Banner (you can swap this for an image later) -->
+      <div class="course-banner">
+        <p class="course-kicker">UX Case Study · PETE Learning</p>
+        <h3 class="course-heading">Your learning path through this project</h3>
+        <p class="course-subheading">
+          Explore how I uncovered PETE’s hidden value, reframed its story, and designed
+          an experience that mirrors its promise.
+        </p>
       </div>
+
+      <!-- White content panel: Module 1 – Meet PETE Learning -->
+      <article class="course-content" id="module-1">
+        <h4>Module 1 · Meet PETE Learning</h4>
+        <p>
+          PETE Learning is an <strong>AI-powered course builder and LMS</strong> built for teams
+          who need to create effective training quickly without sacrificing quality.
+        </p>
+        <p>
+          Instead of spending <strong>20+ hours</strong> writing, structuring, and uploading lessons,
+          learning leaders can generate a first version in just a few minutes, then refine it
+          to match their audiences, roles, and scenarios.
+        </p>
+        <p>
+          At its best, PETE isn’t just “another training tool.” It’s a way for companies to
+          <strong>turn everyday training into a lever for employee growth and long-term value</strong>.
+          That’s the version of PETE this case study is designed to reveal.
+        </p>
+      </article>
     </div>
   </div>
 </section>
+
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
