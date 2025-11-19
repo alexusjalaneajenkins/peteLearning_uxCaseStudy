@@ -314,7 +314,7 @@
   The only problem?<br />
   <span class="highlight-lime">Almost nobody knows it exists.</span>
 </p>
-          <a href="#introduction" class="cta-button">Learn Why</a>
+          <a href="#course-dashboard" class="cta-button">Learn Why</a>
         </div>
       </div>
     </div>
@@ -405,6 +405,8 @@
       document.addEventListener('DOMContentLoaded', () => {
         const video = document.querySelector('.bg-video');
         const content = document.querySelector('.video-overlay-text');
+        const ctaButton = document.querySelector('.cta-button');
+        const courseSection = document.querySelector('#course-dashboard');
 
         if (!video || !content) return;
 
@@ -416,6 +418,13 @@
           revealContent();
         } else {
           video.addEventListener('loadeddata', revealContent, { once: true });
+        }
+
+        if (ctaButton && courseSection) {
+          ctaButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            courseSection.scrollIntoView({ behavior: 'smooth' });
+          });
         }
       });
     </script>
