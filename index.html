@@ -16,7 +16,7 @@
         --color-bg: #000000;
         --color-text: #ffffff;
         --color-muted: rgba(255, 255, 255, 0.78);
-        --color-accent: #5f4bb6;
+        --color-accent: #d6b5ff;
         --color-lime: #34c759;
         --color-warm-gray: #f7f7f7;
       }
@@ -29,12 +29,13 @@
       }
 
       .video-container {
-        position: relative;
-        width: 100%;
-        min-height: 100vh;
-        height: 100vh;
-        overflow: hidden;
-      }
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  height: 100svh;
+  overflow: hidden;
+}
+
 
       .bg-video {
         position: absolute;
@@ -58,22 +59,21 @@
       }
 
       .video-overlay-text {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: clamp(1.5rem, 3vw, 3rem);
-        color: #fff;
-        z-index: 2;
-        text-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
-        gap: 1.25rem;
-      }
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;   /* center child vertically */
+  align-items: center;       /* center child horizontally */
+  text-align: center;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  color: #fff;
+  z-index: 2;
+  text-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
+}
+
+
 
       .video-overlay-text h1 {
         font-family: 'Archivo', 'Poppins', sans-serif;
@@ -94,30 +94,42 @@
         line-height: 1.65;
       }
 
+      @media (max-width: 600px) {
+  .video-overlay-text {
+    padding: 1.5rem;
+  }
+}
+
+
+
+
       .content-wrapper {
-        width: min(92vw, 1100px);
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-        margin: 0 auto;
-        text-align: center;
-      }
+  width: min(92vw, 1100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* center heading + text + button inside */
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
 
       .cta-button {
-        display: inline-block;
-        align-self: center;
-        margin-top: 1.5rem;
-        background: var(--color-lime);
-        color: #041302;
-        font-weight: 600;
-        padding: 0.85rem 1.5rem;
-        border-radius: 999px;
-        text-decoration: none;
-        box-shadow: 0 20px 45px rgba(52, 199, 89, 0.35);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        letter-spacing: 0.02em;
-      }
+  display: inline-block;
+  align-self: center;
+  margin-top: 1.5rem;
+  background: var(--color-lime);
+  color: #ffffff; /* changed */
+  font-weight: 600;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 20px 45px rgba(52, 199, 89, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
 
       .cta-button:hover {
         transform: translateY(-2px);
@@ -132,6 +144,11 @@
         color: var(--color-lime);
         font-weight: 600;
       }
+
+      .text-gradient-purple {
+  color: var(--color-accent);
+  font-weight: 600;
+}
 
       .fade-target {
         opacity: 0;
@@ -166,13 +183,15 @@
           </h1>
 
           <p>
-            PETE Learning is an AI Course Builder that turns 20 hours into 2 minutes<br />
-            and turns 25% employees into 125% employees.<br /><br />
-            The only problem?<br />
-            <span class="highlight-lime">Almost nobody knows it exists.</span>
-          </p>
-
-          <a href="#introduction" class="cta-button">See why this matters ↓</a>
+  PETE Learning is an <span class="text-gradient-purple">AI course builder</span>  
+  that turns <span class="text-gradient-purple">20 hours of work into <br /> 2 minutes of productivity</span>,  
+  helping teams turn generic employees into  
+  <span class="text-gradient-purple">invaluable assets</span>.
+  <br /><br />
+  The only problem?<br />
+  <span class="highlight-lime">Almost nobody knows it exists.</span>
+</p>
+          <a href="#introduction" class="cta-button">Learn Why</a>
         </div>
       </div>
     </div>
