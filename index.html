@@ -186,25 +186,117 @@
   position: sticky;
   top: 1.5rem;
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.sidebar-title {
-  font-size: 0.95rem;
-  font-weight: 600;
+/* Header block */
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sidebar-eyebrow {
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #e5e7eb;
-  margin-bottom: 1.1rem;
+  letter-spacing: 0.14em;
+  color: #9ca3af;
+  margin: 0;
 }
 
-.module-list {
-  list-style: none;
-  padding: 0;
+.sidebar-title-main {
+  font-size: 1.2rem;
+  font-weight: 700;
   margin: 0;
-  display: grid;
-  gap: 0.55rem;
+  color: #f9fafb;
+}
+
+.sidebar-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.sidebar-progress-label {
+  font-size: 0.8rem;
+  color: #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.sidebar-progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(31, 41, 55, 0.9);
+  overflow: hidden;
+}
+
+.sidebar-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #34c759, #a7f3d0);
+}
+
+/* Nav items */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.25rem;
+  border: none;
+  background: transparent;
+  color: #e5e7eb;
   font-size: 0.9rem;
-  color: #cbd5f5;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-item:hover {
+  background: rgba(31, 41, 55, 0.9);
+}
+
+.sidebar-item--active {
+  background: rgba(37, 99, 235, 0.25);
+  color: #f9fafb;
+}
+
+.sidebar-bullet {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid rgba(148, 163, 184, 0.85);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.sidebar-item--active .sidebar-bullet {
+  border-color: #34c759;
+}
+
+.sidebar-item--active .sidebar-bullet::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: #34c759;
+}
+
+.sidebar-item-label {
+  flex: 1;
 }
 
 /* RIGHT SIDE */
@@ -368,16 +460,53 @@
   <div class="course-layout">
     <!-- Sidebar -->
     <aside class="course-sidebar">
-      <h2 class="sidebar-title">Case Study Modules</h2>
-      <ol class="module-list">
-        <li>1. Meet PETE Learning</li>
-        <li>2. The Visibility Problem</li>
-        <li>3. The Journey</li>
-        <li>4. Challenges & Obstacles</li>
-        <li>5. Strategy & Story Reframe</li>
-        <li>6. Prototype & Outcomes</li>
-      </ol>
-    </aside>
+  <!-- Top header block -->
+  <div class="sidebar-header">
+    <p class="sidebar-eyebrow">UX Case Study</p>
+    <h2 class="sidebar-title-main">PETE Learning</h2>
+
+    <div class="sidebar-progress">
+      <span class="sidebar-progress-label">0% complete</span>
+      <div class="sidebar-progress-bar">
+        <div class="sidebar-progress-fill" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav items -->
+  <nav class="sidebar-nav">
+    <button class="sidebar-item sidebar-item--active">
+      <span class="sidebar-bullet"></span>
+      <span class="sidebar-item-label">1. Meet PETE Learning</span>
+    </button>
+
+    <button class="sidebar-item">
+      <span class="sidebar-bullet"></span>
+      <span class="sidebar-item-label">2. The Visibility Problem</span>
+    </button>
+
+    <button class="sidebar-item">
+      <span class="sidebar-bullet"></span>
+      <span class="sidebar-item-label">3. The Journey</span>
+    </button>
+
+    <button class="sidebar-item">
+      <span class="sidebar-bullet"></span>
+      <span class="sidebar-item-label">4. Challenges & Obstacles</span>
+    </button>
+
+    <button class="sidebar-item">
+      <span class="sidebar-bullet"></span>
+      <span class="sidebar-item-label">5. Strategy & Story Reframe</span>
+    </button>
+
+    <button class="sidebar-item">
+      <span class="sidebar-bullet"></span>
+      <span class="sidebar-item-label">6. Prototype & Outcomes</span>
+    </button>
+  </nav>
+</aside>
+
 
     <!-- Main Column -->
     <div class="course-main">
